@@ -72,29 +72,73 @@ nav {
     width: 100%;
     max-width: 50rem;
     border-bottom: 1px solid #16a8;
-    z-index: 0;
+    z-index: 2;
+}
+nav > a {
+    display: grid;
+    place-items: center;
+    text-decoration: none;
+    gap: 0.35rem;
+    font-size: 0.9rem;
+    color: black;
 }
 
 #menu-button, #menu-button img {
     position: relative;
-    z-index: 2;
+    z-index: 10;
 }
 #menu {
     position: fixed;
     top: 0;
-    left: 0;
     right: 0;
     bottom: 0;
-    width: 100vw;
+    max-width: 80vw;
     min-height: 100vh;
+    min-height: 100dvh;
     z-index: 1;
     display: grid;
-    place-items: center;
-    background: #fffa;
-    display: none;
+    justify-content: stretch;
+    align-content: space-between;
+    background: #f8fafd;
+    border-left: 1px solid #16a8;
+    padding: 6rem 3rem 2rem 2rem;
+    grid-template-rows: max-content max-content max-content;
+    line-height: 1.5;
+
+    transform: translateX(100%);
+    transition: transform 0.52s;
 }
 #menu.open {
     display: grid;
+    transform: translateX(0%);
+}
+#menu div.options {
+    width: 100%;
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+#menu div.options a {
+    text-decoration: none;
+    color: black;
+}
+#menu div.links a {
+    color: black;
+}
+#menu div.links img {
+    filter: invert(100%);
+}
+
+#menu-clickout {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+}
+#menu-clickout.open {
+    pointer-events: unset;
 }
 
 .pattern {
@@ -121,12 +165,12 @@ main {
     line-height: 1.5;
     max-width: 40rem;
 }
-main p.em {
+p.em {
     margin-bottom: -3rem;
     font-size: 1.1rem;
     font-family: em, serif;
 }
-main p.heading {
+p.heading {
     font-size: 1.6rem;
     text-align: left;
     line-height: 1.4;
@@ -157,6 +201,9 @@ main div.card {
 main div.card .heading {
     margin-bottom: unset;
 }
+.links {
+    display: grid;
+}
 .links p {
     display: flex;
     gap: 0.5rem;
@@ -181,11 +228,12 @@ main div.card.white {
     gap: 0.5rem;
     width: 100%;
     max-width: 40rem;
+    z-index: 0;
 }
 #buttons a {
     background: var(--blue);
     color: white;
-    padding: 1rem 1rem 0.8rem;
+    padding: 1.1rem 1rem 0.8rem;
     text-align: center;
     border-radius: .4rem;
     text-decoration: none;
@@ -199,7 +247,7 @@ main div.card.white {
 footer {
     width: 100%;
     padding: 4rem 1rem;
-    background: #002;;
+    background: #123;
     color: white;
     display: grid;
     place-items: center;
@@ -230,15 +278,41 @@ footer a {
         </div>
         <a href="tel:+447921456892">
             <img src="phone-black.svg" style="height: 1.2rem" />
+            <p> Call </p>
         </a>
         <button id="menu-button">
             <img src="menu.svg" style="height: 1.22rem" />
+            <p> Menu </p>
         </button>
     </nav>
 
     <section id="menu">
-        <a href="page"> page </a>
+        <div class="options">
+            <p class="em" style="margin-bottom: -1rem;">Menu</p>
+            <a href="home"><p class="heading">Home</p></a>
+            <a href="page"><p class="heading">Services</p></a>
+            <a href="page"><p class="heading">Consultations</p></a>
+            <a href="page"><p class="heading">About</p></a>
+            <a href="page"><p class="heading">Contact</p></a>
+        </div>
+        <p style="font-size: 0.8rem; max-width: 15rem;"> Mr Saharay has over 30 years experience practicing as a Consultant, serving as Clinical Lead of Thyroid Surgery at Queen's Hospital, Romford, and significantly advancing his chosen sub-specilities, becoming a fellow of the Royal College of Surgeons of England. </p>
+        <div class="links">
+            <p>
+                <img src="phone.svg" style="height: 1rem;" />
+                <a href="tel:+447921456892">
+                    +44 7921 456892
+                </a>
+            </p>
+            <p>
+                <img src="mail.svg" style="height: 1rem;" />
+                <a href="mailto:info@saharay.co.uk">
+                    info@saharay.co.uk
+                </a>
+            </p>
+        </div>
     </section>
+
+    <div id="menu-clickout"></div>
 
     <div class="pattern"></div>
 
@@ -351,8 +425,21 @@ footer a {
 
 const menu = document.getElementById("menu");
 const menuButton = document.getElementById("menu-button");
+const menuClickout = document.getElementById("menu-clickout");
 
-menuButton.onclick = () => menu.classList.toggle("open");
+menuButton.onclick = () => {
+    menu.classList.toggle("open");
+    menuClickout.classList.toggle("open");
+    menuButton.querySelector("img").src =
+        menu.classList.contains("open") ? "x.svg" : "menu.svg";
+};
+menuClickout.onclick = menuButton.onclick;
+
+/*
+[...menu.querySelectorAll(".options")].forEach( el =>
+    el.style.textDecoration = el.href == location.path ? "underline" : "none"
+);
+*/
 
     </script>
 </body>
