@@ -153,22 +153,73 @@ const bodyHTML = `
     </footer>
 `;
 
+function setupMenu() {
+    const menu = document.getElementById("menu");
+    const menuButton = document.getElementById("menu-button");
+    const menuClickout = document.getElementById("menu-clickout");
+
+    menuButton.onclick = () => {
+        menu.classList.toggle("open");
+        menuClickout.classList.toggle("open");
+        menuButton.querySelector("img").src =
+            menu.classList.contains("open") ? "/assets/x.svg" : "/assets/menu.svg";
+    };
+    menuClickout.onclick = menuButton.onclick;
+
+    [...menu.querySelectorAll(".options a")].forEach( el => {
+        if( el.getAttribute("href") === location.pathname ) {
+            el.style.color = "var(--blue)";
+        }
+    });
+}
+
+
 document.getElementById("root").innerHTML = bodyHTML;
+setupMenu();
 
-const menu = document.getElementById("menu");
-const menuButton = document.getElementById("menu-button");
-const menuClickout = document.getElementById("menu-clickout");
 
-menuButton.onclick = () => {
-    menu.classList.toggle("open");
-    menuClickout.classList.toggle("open");
-    menuButton.querySelector("img").src =
-        menu.classList.contains("open") ? "/assets/x.svg" : "/assets/menu.svg";
+function assembleTemplate( html, substitutions, content ) {
+    const template = document.createElement("template");
+    template.innerHTML = html.trim();
+
+    for( const [selector, fn] of Object.entries(substitutions) )
+        fn( template.content.querySelector( selector ), content );
+
+    return template.content.firstChild;
+}
+
+const heroCardInnerHTML = `
+<div class="card white">
+    <p class="em">superheading</p>
+    <p class="heading">heading</p>
+    <p class="body">body</p>
+
+    <img src="/assets/portrait.png" style="max-width: 15rem; border-radius: 0.4rem;" />
+
+    <p class="dash"> — </p>
+</div>`;
+
+const heroCardSubstitutions = {
+    "p.em": (el, content) => (el.textContent = content.superheading),
+    "p.heading": (el, content) => (el.textContent = content.heading),
+    "p.body": (el, content) => (el.textContent = content.body),
+    "img": (el, content) => (el.src = content.imgSrc),
 };
-menuClickout.onclick = menuButton.onclick;
 
-[...menu.querySelectorAll(".options a")].forEach( el => {
-    if( el.getAttribute("href") === location.pathname ) {
-        el.style.color = "var(--blue)";
-    }
-});
+const getHeroCard = content =>
+    assembleTemplate( heroCardInnerHTML, heroCardSubstitutions, content );
+
+const content = {
+    heroCard: {
+        superheading: "Introduction",
+        heading: "Mr Mrinal Saharay is a Consultant General Surgeon with extensive knowledge in endocrine and colorectal surgery.",
+        body: "Mr Saharay has over 30 years experience practicing as a Consultant, serving as Clinical Lead of Thyroid Surgery at Queen's Hospital, Romford, and significantly advancing his chosen sub-specilities, becoming a fellow of the Royal College of Surgeons of England.",
+        imgSrc: "/assets/portrait.png",
+    },
+    paragraphs: [
+        {},
+    ],
+};
+
+const main = document.querySelector("main");
+// main.appendChild( getHeroCard( content.heroCard ) );
