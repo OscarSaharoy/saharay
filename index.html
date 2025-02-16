@@ -101,6 +101,7 @@ nav > a {
     display: grid;
     justify-content: stretch;
     align-content: space-between;
+    gap: 2rem;
     background: #f8fafd;
     border-left: 1px solid #16a8;
     padding: 6rem 3rem 2rem 2rem;
@@ -109,6 +110,7 @@ nav > a {
 
     transform: translateX(100%);
     transition: transform 0.52s;
+    overflow: scroll;
 }
 #menu.open {
     display: grid;
@@ -117,8 +119,11 @@ nav > a {
 #menu div.options {
     width: 100%;
     display: grid;
-    gap: 1.5rem;
+    gap: 2rem;
     margin-bottom: 2rem;
+}
+#menu div.options .heading {
+    line-height: 1.2;
 }
 #menu div.options a {
     text-decoration: none;
@@ -291,14 +296,35 @@ footer a {
         </button>
     </nav>
 
+
     <section id="menu">
         <div class="options">
             <p class="em" style="margin-bottom: -1rem;">Menu</p>
-            <a href="/"><p class="heading">Home</p></a>
-            <a href="/services"><p class="heading">Services</p></a>
-            <a href="/consultations"><p class="heading">Consultations</p></a>
-            <a href="/experience"><p class="heading">Experience</p></a>
-            <a href="/contact"><p class="heading">Contact</p></a>
+            <a href="/"><p class="heading">
+                Home
+            </p></a>
+            <a href="/general-surgery"><p class="heading">
+                General Surgery
+            </p></a>
+            <a href="/endocrine-surgery"><p class="heading">
+                Endocrine Surgery
+            </p></a>
+            <a href="/colorectal-surgery"><p class="heading">
+                Colorectal Surgery
+            </p></a>
+            <a href="/medico-legal"><p class="heading">
+                Medico Legal
+            </p></a>
+            <a href="/information"><p class="heading">
+                Information
+            </p></a>
+            <a href="/contact-us"><p class="heading">
+                Contact Us
+            </p></a>
+            <a href="/data-and-privacy"><p class="heading">
+                Data &amp; Privacy
+            </p></a>
+
         </div>
         <p style="font-size: 0.8rem; max-width: 15rem;"> Mr Saharay has over 30 years experience practicing as a Consultant, serving as Clinical Lead of Thyroid Surgery at Queen's Hospital, Romford, and significantly advancing his chosen sub-specilities, becoming a fellow of the Royal College of Surgeons of England. </p>
         <div class="links">
