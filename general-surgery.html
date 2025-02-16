@@ -44,6 +44,7 @@ body {
     display: grid;
     grid-template-rows: max-content auto max-content;
     justify-items: center;
+    background: white;
 }
 
 :root {
@@ -69,17 +70,22 @@ nav {
     padding: 1rem 1rem 0.7rem;
     display: grid;
     background: white;
-    grid-template-columns: max-content auto max-content max-content;
-    align-items: center;
-    gap: 1rem;
     position: sticky;
     top: 0;
     width: 100%;
-    max-width: 50rem;
     border-bottom: 1px solid #16a8;
     z-index: 2;
 }
-nav > a {
+nav > section {
+    display: grid;
+    grid-template-columns: max-content auto max-content max-content;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    max-width: 50rem;
+    justify-self: center;
+}
+nav > section > a {
     display: grid;
     place-items: center;
     text-decoration: none;
@@ -319,21 +325,23 @@ footer a {
 
 <body>
     <nav>
-        <img src="/assets/logo.png" style="height: 2rem;" />
-        <div style="line-height: 1.1;">
-            <p> Mr Mrinal Saharay
-            <strong style="font-size: 0.8rem;">Ph.D FRCS</strong>
-            </p>
-            <p style="font-size: 0.8rem; opacity: 0.7;"> Consultant General Surgeon </p>
-        </div>
-        <a href="tel:+447921456892">
-            <img src="/assets/phone-black.svg" style="height: 1.2rem" />
-            <p> Call </p>
-        </a>
-        <button id="menu-button">
-            <img src="/assets/menu.svg" style="height: 1.22rem" />
-            <p> Menu </p>
-        </button>
+        <section>
+            <img src="/assets/logo.png" style="height: 2rem;" />
+            <div style="line-height: 1.1;">
+                <p> Mr Mrinal Saharay
+                <strong style="font-size: 0.8rem;">Ph.D FRCS</strong>
+                </p>
+                <p style="font-size: 0.8rem; opacity: 0.7;"> Consultant General Surgeon </p>
+            </div>
+            <a href="tel:+447921456892">
+                <img src="/assets/phone-black.svg" style="height: 1.2rem" />
+                <p> Call </p>
+            </a>
+            <button id="menu-button">
+                <img src="/assets/menu.svg" style="height: 1.22rem" />
+                <p> Menu </p>
+            </button>
+        </section>
     </nav>
 
 
