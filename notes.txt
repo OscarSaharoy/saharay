@@ -1,0 +1,35 @@
+
+current
+    Home
+    Services
+    Consultations
+    Experience
+    Contact
+
+all
+
+result
+    Home
+    general-surgery.html
+        hernia-repairs.html
+        lumps-and-bumps.html
+        laparoscopic-gall-bladder-surgery.html
+    endocrine-surgery.html
+        minimally-invasive-parathyroidecomies.html
+        parotid-surgery.html
+        thyroid-surgery.html
+    colorectal-surgery.html
+        anal-fissure.html
+        anal-fistula.html
+        haemerrhoid-surgery.html
+        colorectal-cancer-surgery.html
+        endoscopy.html
+    medico-legal.html
+    information.html
+        hospital-and-clinic-options.html
+        faq.html
+        cv.html
+    contact-us.html
+        contact.html
+    gdpr.html
+
