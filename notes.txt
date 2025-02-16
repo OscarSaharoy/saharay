@@ -15,9 +15,9 @@ result
         lumps-and-bumps.html
         laparoscopic-gall-bladder-surgery.html
     endocrine-surgery.html
-        minimally-invasive-parathyroidecomies.html
-        parotid-surgery.html
         thyroid-surgery.html
+        parotid-surgery.html
+        minimally-invasive-parathyroidecomies.html
     colorectal-surgery.html
         anal-fissure.html
         anal-fistula.html
@@ -30,6 +30,5 @@ result
         faq.html
         cv.html
     contact-us.html
-        contact.html
     gdpr.html
 
