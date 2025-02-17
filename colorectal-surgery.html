@@ -319,6 +319,22 @@ footer section {
 footer a {
     color: white;
 }
+footer .columns {
+    display: grid;
+    width: 100%;
+    gap: 1rem;
+}
+footer .columns > div {
+    justify-content: start;
+}
+@media (min-width: 480px) {
+    footer .columns {
+        grid-template-columns: 1fr 1fr; 
+    }
+    footer .columns > div {
+        justify-content: center;
+    }
+}
 
     </style>
 
@@ -607,38 +623,42 @@ footer a {
 
             <p class="dash" style="color: white;"> — </p>
 
-            <div style="display: grid; gap: 0.5rem; justify-self: stretch;">
-                <div style="line-height: 1.2;">
-                    <p style="font-size: 0.8rem; opacity: 0.7;"> Consultant General Surgeon </p>
-                    <p> Mr Mrinal Saharay
-                    <strong style="font-size: 0.8rem;">Ph.D FRCS</strong>
-                    </p>
+            <div class="columns">
+                <div style="display: grid; gap: 0.5rem;">
+                    <div style="line-height: 1.2;">
+                        <p style="font-size: 0.8rem; opacity: 0.7;"> Consultant General Surgeon </p>
+                        <p> Mr Mrinal Saharay
+                        <strong style="font-size: 0.8rem;">Ph.D FRCS</strong>
+                        </p>
+                    </div>
+
+                    <div style="line-height: 1.2;">
+                        <p style="font-size: 0.8rem; opacity: 0.7;"> Practice Manager </p>
+                        <p> Bernadette Murray </p>
+                    </div>
                 </div>
 
-                <div style="line-height: 1.2;">
-                    <p style="font-size: 0.8rem; opacity: 0.7;"> Practice Manager </p>
-                    <p> Bernadette Murray </p>
+                <div style="display: grid; gap: 0.5rem;">
+                    <div class="links">
+                        <p>
+                            <img src="/assets/phone.svg" style="height: 1rem;" />
+                            <a href="tel:+447921456892">
+                                +44 7921 456892
+                            </a>
+                        </p>
+                        <p>
+                            <img src="/assets/mail.svg" style="height: 1rem;" />
+                            <a href="mailto:info@saharay.co.uk">
+                                info@saharay.co.uk
+                            </a>
+                        </p>
+                        <p>
+                            <img src="/assets/map-pin.svg" style="height: 1rem;" />
+                            <span> 10 Lower Bury Lane, Epping, Essex, CM16 5HA </span>
+                        </p>
+                    </div>
+                    <p style="font-size: 0.8rem;"> <br>© Essex Surgical Practice 2024 </p>
                 </div>
-                <br>
-                <div class="links">
-                    <p>
-                        <img src="/assets/phone.svg" style="height: 1rem;" />
-                        <a href="tel:+447921456892">
-                            +44 7921 456892
-                        </a>
-                    </p>
-                    <p>
-                        <img src="/assets/mail.svg" style="height: 1rem;" />
-                        <a href="mailto:info@saharay.co.uk">
-                            info@saharay.co.uk
-                        </a>
-                    </p>
-                    <p>
-                        <img src="/assets/map-pin.svg" style="height: 1rem;" />
-                        <span> 10 Lower Bury Lane, Epping, Essex, CM16 5HA </span>
-                    </p>
-                </div>
-                <p style="font-size: 0.8rem;"> <br>© Essex Surgical Practice 2024 </p>
             </div>
         </section>
     </footer>
