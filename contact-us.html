@@ -45,6 +45,8 @@ body {
     grid-template-rows: max-content auto max-content;
     justify-items: center;
     background: white;
+    position: relative;
+    z-index: -3;
 }
 
 :root {
@@ -215,6 +217,7 @@ main {
     gap: 2rem;
     line-height: 1.5;
     max-width: 40rem;
+    z-index: -2;
 }
 p.em {
     margin-bottom: -3rem;
@@ -285,7 +288,7 @@ main ul {
     gap: 0.5rem;
     width: 100%;
     max-width: 40rem;
-    z-index: 0;
+    z-index: -2;
 }
 #buttons a {
     background: var(--blue);
