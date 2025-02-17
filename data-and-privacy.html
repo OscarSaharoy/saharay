@@ -56,6 +56,7 @@ button {
     appearance: none;
     border: none;
     background: transparent;
+    cursor: pointer;
 }
 
 a {
@@ -140,6 +141,7 @@ nav > section > a {
     display: grid;
     grid-template-columns: auto max-content;
     align-items: start;
+    gap: 0.5rem;
 }
 #menu div.options .dropdown-top button {
     margin-top: 0.4rem;
@@ -195,7 +197,6 @@ nav > section > a {
     height: 30rem;
     margin-bottom: -30rem;
     width: 100%;
-    max-width: 50rem;
     background: var(--blue);
     position: relative;
     z-index: -3;
@@ -326,7 +327,9 @@ footer a {
 <body>
     <nav>
         <section>
-            <img src="/assets/logo.png" style="height: 2rem;" />
+            <a href="/">
+                <img src="/assets/logo.png" style="height: 2rem;" />
+            </a>
             <div style="line-height: 1.1;">
                 <p> Mr Mrinal Saharay
                 <strong style="font-size: 0.8rem;">Ph.D FRCS</strong>
