@@ -657,6 +657,12 @@ menuDropdowns.forEach( el =>
     )
 );
 
+const pattern = document.querySelector(".pattern");
+const cardWhite = document.querySelector(".card.white");
+const cardWhiteHeight = cardWhite.getBoundingClientRect().height * 3/4;
+pattern.style.height = `${cardWhiteHeight}px`;
+pattern.style.marginBottom = `-${cardWhiteHeight}px`;
+
     </script>
 </body>
 
